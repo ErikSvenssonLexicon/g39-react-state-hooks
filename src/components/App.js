@@ -28,6 +28,7 @@ const App = (props) => {
   }, [findAllPeople]);
 
   const handleAddPerson = (person) => {
+    
     setPeople([...people, person]);
   };
 
