@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import People from "./People";
 import PersonForm from "./PersonForm";
+import Card from "./ui/Card";
 import Spinner from "./ui/Spinner";
 
 const App = (props) => {
@@ -22,7 +23,6 @@ const App = (props) => {
     }
   }, []);
 
-  //
   useEffect(() => {
     findAllPeople();
   }, [findAllPeople]);
@@ -37,11 +37,22 @@ const App = (props) => {
 
   return (
     <div className="container">
-      <PersonForm handleAddPerson={handleAddPerson} />
       {!isLoading && (
-        <People people={people} handleDeletePerson={handleDeletePerson} />
+        <Card className="mt-3 shadow">
+          <PersonForm handleAddPerson={handleAddPerson} />
+        </Card>
       )}
-      {isLoading && <Spinner/>}
+
+      {!isLoading && (
+        <Card className="mt-3 shadow">
+          <People people={people} handleDeletePerson={handleDeletePerson} />
+        </Card>
+      )}
+      {isLoading && (
+        <Card className="mt-3 shadow">
+          <Spinner />
+        </Card>
+      )}
     </div>
   );
 };

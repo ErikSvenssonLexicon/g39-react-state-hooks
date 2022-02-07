@@ -1,5 +1,4 @@
-import { useState } from "react";
-import Card from "./ui/Card";
+import { useState, Fragment } from "react";
 
 const PersonForm = (props) => {
   const [fullName, setFullName] = useState("");
@@ -25,7 +24,7 @@ const PersonForm = (props) => {
   };
 
   return (
-    <Card className="shadow mt-5">
+    <Fragment>
       <p className="text text-center text-danger"></p>
       <form onSubmit={handleSubmitForm}>
         <div className="d-flex gap-3 g-0">
@@ -68,7 +67,7 @@ const PersonForm = (props) => {
           </button>
         </div>
       </form>
-    </Card>
+    </Fragment> 
   );
 };
 
